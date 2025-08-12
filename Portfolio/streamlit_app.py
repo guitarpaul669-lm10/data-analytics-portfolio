@@ -24,7 +24,7 @@ with tab1:
     Analyse eines großen E-Commerce-Datensatzes mit Fokus auf Bestellverhalten, Anbieter, Kunden, Standorte, Lieferzeiten und Korrelationen.
     """)
     
-    st.image("images/project1_screenshot.png", caption="Beispiel-Visualisierung", use_container_width=True)
+    st.image("images/project1_screenshot.png", caption="Beispiel-Visualisierung", width = 300)
     
     col1, col2 = st.columns(2)
     with col1:
@@ -32,7 +32,7 @@ with tab1:
             webbrowser.open_new_tab("https://deinlink-zu-streamlit-projekt1")
     with col2:
         if st.button("💻 Code auf GitHub", key="proj1_code"):
-            webbrowser.open_new_tab("https://github.com/deinprofil/projekt1")
+            webbrowser.open_new_tab("https://github.com/guitarpaul669-lm10/data-analytics-portfolio/blob/main/Portfolio/notebooks/Brazil-E-Commerce.ipynb")
 
 # ============================
 # PROJEKT 2
@@ -44,7 +44,7 @@ with tab2:
     Analyse eine Tech-Survey mit Fokus auf Ursachen und Zusammenhänge. Durch die Datenanalyse konnten Hypothesen gebildet werden und mit Regressionen untersucht werden.
     """)
     
-    st.image("images/project2_screenshot.png", caption="Beispiel-Visualisierung", use_container_width=True)
+    st.image("images/project2_screenshot.png", caption="Beispiel-Visualisierung", width = 300)
     
     col1, col2 = st.columns(2)
     with col1:
@@ -52,7 +52,7 @@ with tab2:
             webbrowser.open_new_tab("https://deinlink-zu-streamlit-projekt2")
     with col2:
         if st.button("💻 Code auf GitHub", key="proj2_code"):
-            webbrowser.open_new_tab("https://github.com/deinprofil/projekt2")
+            webbrowser.open_new_tab("https://github.com/guitarpaul669-lm10/data-analytics-portfolio/blob/main/Portfolio/notebooks/survey.ipynb")
 
 # ============================
 # PROJEKT 3
@@ -64,7 +64,6 @@ with tab3:
     Auf Grundlage der Bachelorarbeit und der berechneten Regressionen, wird dieses Thema interaktiv visualisiert in einer Streamlit-App. Die Daten stammen vom Sozio-oekonomisches Panel (SOEP).
     """)
     
-    st.image("images/project3_screenshot.png", caption="Beispiel-Visualisierung", use_container_width=True)
     
     col1, col2 = st.columns(2)
     with col1:
@@ -72,4 +71,5 @@ with tab3:
             webbrowser.open_new_tab("https://deinlink-zu-streamlit-projekt3")
     with col2:
         if st.button("💻 Code auf GitHub", key="proj3_code"):
-            webbrowser.open_new_tab("https://github.com/deinprofil/projekt3")
+
+            webbrowser.open_new_tab("https://github.com/guitarpaul669-lm10/data-analytics-portfolio/blob/main/Portfolio/notebooks/Job%20Zufriedenheit.R")
