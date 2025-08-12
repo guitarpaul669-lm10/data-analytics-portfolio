@@ -32,7 +32,8 @@ descriptions = {
 
 st.set_page_config(page_title="Mental Health in Tech - Dashboard", layout="centered")
 
-df = pd.read_csv("C:/Users/Dell/Documents/Python/hr_project/survey_clean.csv")
+url = "https://drive.google.com/uc?export=download&id=17ku9DRisbZ5QpTvfRTNHmc5jkbpJiCpC"
+df = pd.read_csv(url)
 df = df.drop(df[["Timestamp", "comments"]],axis= 1)
 
 
@@ -336,5 +337,6 @@ elif seite == "Hypothesen und Ergebnisse":
             st.markdown(info["motivation"]) 
         with st.expander("Ergebnisse"):
             st.markdown(info["ergebnisse"])
+
 
 
