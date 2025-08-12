@@ -536,7 +536,8 @@ elif auswahl == "7. Review-Score":
     url_2 = "https://drive.google.com/uc?export=download&id=1lH49hMawQhUtiP1sSpHivi1l7-IkLi2c"
     url_3 = "https://drive.google.com/uc?export=download&id=1dV25csezPVUhFENY4XKqwfYQf-jf1lC1"
     url_4 = "https://drive.google.com/uc?export=download&id=1aEs1tBSaQyAjsVONvbkAgL3lBMl9baAo"
-    url_5 = "https://drive.google.com/uc?export=download&id=1aEs1tBSaQyAjsVONvbkAgL3lBMl9baAo"
+    url_5 = "https://drive.google.com/uc?export=download&id=1YZARhhNH4xFhQljQP6bMdDkDJRpiML3F"
+   
     df = pd.read_csv(url)
     df_2 = pd.read_csv(url_1)
     df_3 = pd.read_csv(url_2)
@@ -677,6 +678,7 @@ elif auswahl == "8. Zusammenhänge der Variablen Lieferzeit, Versandkosten, Stan
     st.plotly_chart(fig)
     st.markdown("Der Prozentanteil bedeutet wie viel der Verspätung auf den Lieferanten zurückgeht. Ersichtlich ist eine linkschiefe Verteilung, was bedeutet das die Lieferanten größtenteils für die Verspätungen verantwortlich sind.  \n")
     st.markdown("**Die Lieferverzögerungen führen natürlich zu einer Unzufriedenheit der Kunden.**")
+
 
 
 
