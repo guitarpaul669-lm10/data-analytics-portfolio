@@ -19,8 +19,6 @@ analyse = [
     "7. Review-Score",
     "8. Zusammenhänge der Variablen Lieferzeit, Versandkosten, Standorte"
 ]
-#"C:/Users/Dell/Downloads/Q1.csv"
-#streamlit run "C:\Users\Dell\Documents\Python\e_commerce.py"
 
 auswahl = st.selectbox("Wählen Sie eine Analyse:", analyse)
 
@@ -35,7 +33,8 @@ if auswahl == "1. Welche Produkte sind am beliebtesten?":
     ORDER BY product_count DESC
     LIMIT 10;
     """ 
-    df = pd.read_csv("C:/Users/Dell/Downloads/Q1.csv")
+    url = https://drive.google.com/uc?export=download&id=1oQqqWleQTWuhYNJMM_i_J60qFYsy1oCV
+    df = pd.read_csv(url)
     top10 = df["product_category_name"].value_counts(normalize=True).head(10)
     top10_df = top10.reset_index()
     top10_df.columns = ["product_category_name", "share"]
@@ -84,7 +83,8 @@ elif auswahl == "2. Regionale vs. saisonale Verkaufsmuster":
     GROUP BY day_only
     ORDER BY percent DESC;
     """
-    df = pd.read_csv("C:/Users/Dell/Downloads/Q2.csv")
+    url = https://drive.google.com/uc?export=download&id=1xoyVRaqaawTHxmGVpQDsIkx0NvBJ3NxA
+    df = pd.read_csv(url)
     st.subheader("Kundenstandorte")
     top_place = df["customer_city"].value_counts(normalize=True).head(10)
     top_place_df = top_place.reset_index()
@@ -158,8 +158,10 @@ elif auswahl == "3. Top Kunden":
     GROUP BY cu.customer_state
     ORDER BY kundenanzahl DESC;
     """
-    df = pd.read_csv("C:/Users/Dell/Downloads/Q4.csv")
-    cust_geo = pd.read_csv("C:/Users/Dell/Downloads/cust_geo.csv")
+    url = https://drive.google.com/uc?export=download&id=1Slc8-E9E6RIqWc46DtQzM_pt4qe-EXxV
+    url_1 = https://drive.google.com/uc?export=download&id=14nIEVTnY3CwcWCWXIPTX1K9euT5cTShC
+    df = pd.read_csv(url)
+    cust_geo = pd.read_csv(url_1)
     st.subheader("Top Kunden nach Payment Value")
     customer_df = df.groupby("customer_unique_id")["payment_value"].sum().sort_values(ascending=False)
     customer_df = customer_df.reset_index()
@@ -269,8 +271,10 @@ elif auswahl == "4. Top Anbieter":
     HAVING pr.product_category_name IS NOT NULL
     ORDER BY percent DESC;
     """
-    df = pd.read_csv("C:/Users/Dell/Downloads/Q6.csv")
-    seller_geo = pd.read_csv("C:/Users/Dell/Downloads/seller_geo.csv")
+    url = https://drive.google.com/uc?export=download&id=1Zj6RLYe6BRGWmzMH1eOij8zv64qYXZXJ
+    url_1 = https://drive.google.com/uc?export=download&id=1hPoliAfXA4ETrRRyVZMuwVkPVa_pgY6a
+    df = pd.read_csv(url)
+    seller_geo = pd.read_csv(url_1)
     st.subheader("Top Anbieter nach Anzahl der Bestellungen")
     top_10_seller =  df.groupby("seller_id")["order_id"].nunique().sort_values(ascending=False).head(10).index
     top_1_seller = df.groupby("seller_id")["order_id"].nunique().sort_values(ascending=False).head(1).index
@@ -370,7 +374,8 @@ elif auswahl == "5. Durchschnittlicher Warenkorbwert und Produktanzahl":
     LEFT JOIN payment pa ON pa.order_id = ord.order_id
     LEFT JOIN item it ON it.order_id = ord.order_id;
     """
-    df = pd.read_csv("C:/Users/Dell/Downloads/Q4.csv")
+    url = https://drive.google.com/uc?export=download&id=1Slc8-E9E6RIqWc46DtQzM_pt4qe-EXxV
+    df = pd.read_csv(url)
     st.subheader("Durchschnittlicher Warenkorbwert")
     wk_df = df.groupby("order_id")["payment_value"].sum()
     wk_df = wk_df.reset_index()
@@ -433,7 +438,8 @@ elif auswahl == "6. Abgebrochene Bestellungen (Hinweise und Muster)":
     HAVING pr.product_category_name IS NOT NULL
     ORDER BY percent DESC;
     """
-    df = pd.read_csv("C:/Users/Dell/Downloads/Q4.csv")
+    url = https://drive.google.com/uc?export=download&id=1Slc8-E9E6RIqWc46DtQzM_pt4qe-EXxV
+    df = pd.read_csv(url)
     st.markdown("Verschiedene Aspekte wurden untersucht, ob bestimmte Haushalte immer die Bestellungen abbrechen,verschiedene Produkte zurückgeschickt werden, oder es an der Bezahlmethode gebunden ist.")
     st.subheader("Verwendete SQL-Query")
     st.subheader("Kunden")
@@ -525,12 +531,18 @@ elif auswahl == "7. Review-Score":
     GROUP BY product_category_name
     ORDER By COUNT(product_category_name) DESC;
 """
-    df = pd.read_csv("C:/Users/Dell/Downloads/seller_review.csv")
-    df_2 = pd.read_csv("C:/Users/Dell/Downloads/product_top.csv")
-    df_3 = pd.read_csv("C:/Users/Dell/Downloads/product_bad.csv")
-    bad_df = pd.read_csv("C:/Users/Dell/Downloads/bad_df.csv")
-    better_df = pd.read_csv("C:/Users/Dell/Downloads/better_df.csv")
-    late_df = pd.read_csv("C:/Users/Dell/Downloads/late.csv")
+    url = https://drive.google.com/uc?export=download&id=1TIydQgUz4dfnSQ_JwiSggCDTi6zJSzea
+    url_1 = https://drive.google.com/uc?export=download&id=1EFi8r5aKaoeuiKoRVtHxAi3bZhpIVidW
+    url_2 = https://drive.google.com/uc?export=download&id=1lH49hMawQhUtiP1sSpHivi1l7-IkLi2c
+    url_3 = https://drive.google.com/uc?export=download&id=1dV25csezPVUhFENY4XKqwfYQf-jf1lC1
+    url_4 = https://drive.google.com/uc?export=download&id=1aEs1tBSaQyAjsVONvbkAgL3lBMl9baAo
+    url_5 = https://drive.google.com/uc?export=download&id=1aEs1tBSaQyAjsVONvbkAgL3lBMl9baAo
+    df = pd.read_csv(url)
+    df_2 = pd.read_csv(url_1)
+    df_3 = pd.read_csv(url_2)
+    bad_df = pd.read_csv(url_3)
+    better_df = pd.read_csv(url_4)
+    late_df = pd.read_csv(url_5)
     st.markdown("**Verschiedene Aspekte wurden untersucht, um herauszufinden was die Ursachen für gute und schlechte Bewertungen sind.**")
     st.subheader("Verteilungen mit Einschränkungen")
     st.markdown("Die Einschränkungen sind entscheidend für die Reduzierung von Verzerrungseffekten."
@@ -605,9 +617,13 @@ elif auswahl == "7. Review-Score":
     
 
 elif auswahl == "8. Zusammenhänge der Variablen Lieferzeit, Versandkosten, Standorte":
-    df = pd.read_csv("C:/Users/Dell/Downloads/Q3.csv")
-    df_2 = pd.read_csv("C:/Users/Dell/Downloads/Q7_sample.csv")
-    late_df = pd.read_csv("C:/Users/Dell/Downloads/late.csv")
+    url =https://drive.google.com/uc?export=download&id=1EOzTgetN3P5aibj9dXkBDsTLBAE_Nxbj
+    url_1 = https://drive.google.com/uc?export=download&id=1D4w9a2uhAm1-ANC8w1V0KVanse4kLe9C
+    url_2 = https://drive.google.com/uc?export=download&id=1YZARhhNH4xFhQljQP6bMdDkDJRpiML3F
+    
+    df = pd.read_csv(url)
+    df_2 = pd.read_csv(url_1)
+    late_df = pd.read_csv(url_2)
 
 
     st.subheader("Wie hängen Größe und Gewicht eines Produkts oder Wert mit Versandkosten zusammen?")
@@ -661,6 +677,7 @@ elif auswahl == "8. Zusammenhänge der Variablen Lieferzeit, Versandkosten, Stan
     st.plotly_chart(fig)
     st.markdown("Der Prozentanteil bedeutet wie viel der Verspätung auf den Lieferanten zurückgeht. Ersichtlich ist eine linkschiefe Verteilung, was bedeutet das die Lieferanten größtenteils für die Verspätungen verantwortlich sind.  \n")
     st.markdown("**Die Lieferverzögerungen führen natürlich zu einer Unzufriedenheit der Kunden.**")
+
 
 
 
