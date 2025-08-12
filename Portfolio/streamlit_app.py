@@ -27,11 +27,9 @@ with tab1:
     
     col1, col2 = st.columns(2)
     with col1:
-        if st.button("🔗 Streamlit App öffnen", key="proj1_app"):
-            webbrowser.open_new_tab("data-analytics-portfolio-e-commerce.streamlit.app")
+        st.markdown("[🔗 Streamlit App öffnen](https://data-analytics-portfolio-e-commerce.streamlit.app)")
     with col2:
-        if st.button("💻 Code auf GitHub", key="proj1_code"):
-            webbrowser.open_new_tab("https://github.com/guitarpaul669-lm10/data-analytics-portfolio/blob/main/Portfolio/notebooks/Brazil-E-Commerce.ipynb")
+        st.markdown("[💻 Code auf GitHub](https://github.com/guitarpaul669-lm10/data-analytics-portfolio/blob/main/Portfolio/notebooks/Brazil-E-Commerce.ipynb)")
 
 # ============================
 # PROJEKT 2
@@ -46,11 +44,9 @@ with tab2:
     
     col1, col2 = st.columns(2)
     with col1:
-        if st.button("🔗 Streamlit App öffnen", key="proj2_app"):
-            webbrowser.open_new_tab("data-analytics-portfolio-survey.streamlit.app")
+        st.markdown("[🔗 Streamlit App öffnen](https://data-analytics-portfolio-survey.streamlit.app)")
     with col2:
-        if st.button("💻 Code auf GitHub", key="proj2_code"):
-            webbrowser.open_new_tab("https://github.com/guitarpaul669-lm10/data-analytics-portfolio/blob/main/Portfolio/notebooks/survey.ipynb")
+        st.markdown("[💻 Code auf GitHub](https://github.com/guitarpaul669-lm10/data-analytics-portfolio/blob/main/Portfolio/notebooks/survey.ipynb)")
 
 # ============================
 # PROJEKT 3
@@ -65,11 +61,9 @@ with tab3:
     
     col1, col2 = st.columns(2)
     with col1:
-        if st.button("🔗 Streamlit App öffnen", key="proj3_app"):
-            webbrowser.open_new_tab("data-analytics-portfolio-bigfive.streamlit.app")
+        st.markdown("[🔗 Streamlit App öffnen](https://data-analytics-portfolio-bigfive.streamlit.app)")
     with col2:
-        if st.button("💻 Code auf GitHub", key="proj3_code"):
+        st.markdown("[💻 Code auf GitHub](https://github.com/guitarpaul669-lm10/data-analytics-portfolio/blob/main/Portfolio/notebooks/Job%20Zufriedenheit.R)")
 
-            webbrowser.open_new_tab("https://github.com/guitarpaul669-lm10/data-analytics-portfolio/blob/main/Portfolio/notebooks/Job%20Zufriedenheit.R")
 
 
