@@ -678,6 +678,9 @@ elif auswahl == "8. Zusammenhänge der Variablen Lieferzeit, Versandkosten, Stan
     st.plotly_chart(fig)
     st.markdown("Der Prozentanteil bedeutet wie viel der Verspätung auf den Lieferanten zurückgeht. Ersichtlich ist eine linkschiefe Verteilung, was bedeutet das die Lieferanten größtenteils für die Verspätungen verantwortlich sind.  \n")
     st.markdown("**Die Lieferverzögerungen führen natürlich zu einer Unzufriedenheit der Kunden.**")
+    st.markdown("Ein Vergleich der Distanz erfolgreicher und nicht erfolgreicher Bestellungen ergab:")
+    st.markdown("**Die mittlere Lieferdistanz ist um 32\% höher als bei den erfolgreich gelieferten Bestellungen. Das ist ein möglicher Grund für die verspäteten Lieferungen. Und erklärt möglicherweise auch, wieso die Verspätungen zumeist von den Lieferanten ausgehen.**")
+
 
 
 
