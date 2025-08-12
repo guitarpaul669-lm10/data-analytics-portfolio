@@ -147,64 +147,70 @@ elif seite == "Berufsempfehlung":
     
     scores = {
         "Akademischer Bereich": (
-            -0.3 * werte["Extraversion"] +
-            0.1 * werte["Neurotizismus"] +
-            0.8 * werte["Offenheit"] +
-            0.6 * werte["Gewissenhaftigkeit"] +
-            -0.1 * werte["Verträglichkeit"] +
-            0.2 * alter + 
-            0.2* geschlecht_code +
-            0.2   
+            0.132 * werte["Extraversion"] +
+            -0.149 * werte["Neurotizismus"] +
+            0.059 * werte["Offenheit"] +
+            0.185 * werte["Gewissenhaftigkeit"] +
+            0.190 * werte["Verträglichkeit"] +
+            -0.042 * alter +
+            0.0004 * (alter ** 2) +
+            -0.081 * geschlecht_code +
+            5.873   
         ),
         "Dienstleistungen": (
-            -0.3 * werte["Extraversion"] +
-            0.1 * werte["Neurotizismus"] +
-            0.8 * werte["Offenheit"] +
-            0.6 * werte["Gewissenhaftigkeit"] +
-            -0.1 * werte["Verträglichkeit"] +
-            0.2 * alter + 
-            0.2* geschlecht_code +
-            0.2 
+            0.115 * werte["Extraversion"] +
+            -0.148 * werte["Neurotizismus"] +
+            0.068 * werte["Offenheit"] +
+            0.213 * werte["Gewissenhaftigkeit"] +
+            0.171 * werte["Verträglichkeit"] +
+            -0.035 * alter + 
+            0.0003 * (alter ** 2) +
+            -0.042 * geschlecht_code +
+            5.575 
         ),
         "Führungskraft": (
-            -0.3 * werte["Extraversion"] +
-            0.1 * werte["Neurotizismus"] +
-            0.8 * werte["Offenheit"] +
-            0.6 * werte["Gewissenhaftigkeit"] +
-            -0.1 * werte["Verträglichkeit"] +
-            0.2 * alter + 
-            0.2* geschlecht_code +
-            0.2 
+            0.191 * werte["Extraversion"] +
+            -0.169 * werte["Neurotizismus"] +
+            0.079 * werte["Offenheit"] +
+            0.370 * werte["Gewissenhaftigkeit"] +
+            0.106 * werte["Verträglichkeit"] +
+            -0.165 * alter + 
+            0.002 * (alter ** 2) +
+            0.007 * geschlecht_code +
+            7.560
         ),
         "Handwerkerlicher Bereich":(
-            -0.3 * werte["Extraversion"] +
-            0.1 * werte["Neurotizismus"] +
-            0.8 * werte["Offenheit"] +
-            0.6 * werte["Gewissenhaftigkeit"] +
-            -0.1 * werte["Verträglichkeit"] +
-            0.2 * alter + 
-            0.2* geschlecht_code +
-            0.2 
+            0.122 * werte["Extraversion"] +
+            -0.084 * werte["Neurotizismus"] +
+            0.064 * werte["Offenheit"] +
+            0.196 * werte["Gewissenhaftigkeit"] +
+            0.208 * werte["Verträglichkeit"] +
+            -0.042 * alter + 
+            0.0003 * (alter ** 2) +
+            -0.212* geschlecht_code +
+            5.500
         ),
         "Büroarbeiter": (
-            -0.3 * werte["Extraversion"] +
-            0.1 * werte["Neurotizismus"] +
-            0.8 * werte["Offenheit"] +
-            0.6 * werte["Gewissenhaftigkeit"] +
-            -0.1 * werte["Verträglichkeit"] +
-            0.2 * alter + 
-            0.2* geschlecht_code +
-            0.2  
+            0.176 * werte["Extraversion"] +
+            -0.296 * werte["Neurotizismus"] +
+            0.089 * werte["Offenheit"] +
+            0.231 * werte["Gewissenhaftigkeit"] +
+            0.227 * werte["Verträglichkeit"] +
+            -0.055 * alter + 
+            0.001 * (alter ** 2) +
+            0.075 * geschlecht_code +
+            5.569
         ),
         "Techniker":(
-            -0.3 * werte["Extraversion"] +
-            0.1 * werte["Neurotizismus"] +
-            0.8 * werte["Offenheit"] +
-            0.6 * werte["Gewissenhaftigkeit"] +
-            -0.1 * werte["Verträglichkeit"] +
-            0.2 * alter + 
-            0.2* geschlecht_code +
-            0.2 
+            0.123 * werte["Extraversion"] +
+            -0.139 * werte["Neurotizismus"] +
+            0.023 * werte["Offenheit"] +
+            0.155 * werte["Gewissenhaftigkeit"] +
+            0.209 * werte["Verträglichkeit"] +
+            -0.040 * alter + 
+            0.0003 * (alter ** 2) +
+            -0.151 * geschlecht_code +
+            6.176 
         )
     }
 
@@ -215,4 +221,5 @@ elif seite == "Berufsempfehlung":
     st.success(f" {bester_bereich} (Score: {bester_score:.2f})")
     with st.expander("🔍 Alle Score-Werte anzeigen"):
             for bereich, score in sorted(scores.items(), key=lambda x: x[1], reverse=True):
+
                 st.write(f"{bereich}: {score:.2f}")
