@@ -24,7 +24,6 @@ with tab1:
     Analyse eines großen E-Commerce-Datensatzes mit Fokus auf Bestellverhalten, Anbieter, Kunden, Standorte, Lieferzeiten und Korrelationen.
     """)
     
-    st.image("images/project1_screenshot.png", caption="Beispiel-Visualisierung", width = 300)
     
     col1, col2 = st.columns(2)
     with col1:
@@ -44,7 +43,6 @@ with tab2:
     Analyse eine Tech-Survey mit Fokus auf Ursachen und Zusammenhänge. Durch die Datenanalyse konnten Hypothesen gebildet werden und mit Regressionen untersucht werden.
     """)
     
-    st.image("images/project2_screenshot.png", caption="Beispiel-Visualisierung", width = 300)
     
     col1, col2 = st.columns(2)
     with col1:
@@ -73,4 +71,5 @@ with tab3:
         if st.button("💻 Code auf GitHub", key="proj3_code"):
 
             webbrowser.open_new_tab("https://github.com/guitarpaul669-lm10/data-analytics-portfolio/blob/main/Portfolio/notebooks/Job%20Zufriedenheit.R")
+
 
