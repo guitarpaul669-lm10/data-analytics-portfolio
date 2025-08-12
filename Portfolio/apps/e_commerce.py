@@ -444,7 +444,7 @@ elif auswahl == "6. Abgebrochene Bestellungen (Hinweise und Muster)":
     st.subheader("Verwendete SQL-Query")
     st.subheader("Kunden")
     st.code(sql_query, language="sql")
-    st.markdown("**Die abgebrochenen Bestellungen gehen nicht von einem Kunden oder Kundengruppe aus.....mach mal woher die kommen, und erklär kann nicht sein weil,...**")
+    st.markdown("**Die abgebrochenen Bestellungen gehen nicht von einem Kunden oder Kundengruppe (Bsp.: gleicher Standort) aus.**")
     st.subheader("Lieferzeiten")
     df["order_purchase_timestamp"] = pd.to_datetime(df["order_purchase_timestamp"])
     df["order_delivered_customer_date"] = pd.to_datetime(df["order_delivered_customer_date"])
@@ -678,6 +678,7 @@ elif auswahl == "8. Zusammenhänge der Variablen Lieferzeit, Versandkosten, Stan
     st.plotly_chart(fig)
     st.markdown("Der Prozentanteil bedeutet wie viel der Verspätung auf den Lieferanten zurückgeht. Ersichtlich ist eine linkschiefe Verteilung, was bedeutet das die Lieferanten größtenteils für die Verspätungen verantwortlich sind.  \n")
     st.markdown("**Die Lieferverzögerungen führen natürlich zu einer Unzufriedenheit der Kunden.**")
+
 
 
 
