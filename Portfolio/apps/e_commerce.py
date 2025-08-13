@@ -238,9 +238,8 @@ elif auswahl == "3. Top Kunden":
     st.markdown("Top Kunden können entweder nach der Bestellanzahl oder der Ausgaben eingeteilt werden.")
     df_gemeinsam = pd.DataFrame(gemeinsam, columns=["customer_unique_id"])
     st.dataframe(df_gemeinsam)
-	st.subheader("Verwendete SQL-Query")
-	st.code(sql_query_3, language = "sql")
-    st.markdown("**Der Vergleich beider Varianten ergibt das es keine Überschneidungen gibt.**")
+	st.markdown("**Der Vergleich beider Varianten ergibt das es keine Überschneidungen gibt.**")
+    
 	wahl = st.radio("Analysegruppe wählen:",("Top Kunden nach Bestellwert", "Top Kunden nach Anzahl Bestellungen"))
 		if wahl == "Top Kunden nach Bestellwert":
 		    st.subheader("Top Kunden nach Payment Value")
@@ -814,6 +813,7 @@ elif auswahl == "8. Zusammenhänge der Variablen Lieferzeit, Versandkosten, Stan
     st.markdown("**Die Lieferverzögerungen führen natürlich zu einer Unzufriedenheit der Kunden.**")
     st.markdown("Ein Vergleich der Distanz erfolgreicher und nicht erfolgreicher Bestellungen ergab:")
     st.markdown("**Die mittlere Lieferdistanz ist um 32\% höher als bei den erfolgreich gelieferten Bestellungen. Das ist ein möglicher Grund für die verspäteten Lieferungen. Und erklärt möglicherweise auch, wieso die Verspätungen zumeist von den Lieferanten ausgehen.**")
+
 
 
 
