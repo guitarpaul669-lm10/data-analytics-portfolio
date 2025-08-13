@@ -237,7 +237,7 @@ elif auswahl == "3. Top Kunden":
     st.markdown("Top Kunden können entweder nach der Bestellanzahl oder der Ausgaben eingeteilt werden.")
     df_gemeinsam = pd.DataFrame(gemeinsam, columns=["customer_unique_id"])
     st.dataframe(df_gemeinsam)
-    st.markdown(""**Der Vergleich beider Varianten ergibt das es keine Überschneidungen gibt.**"")
+    st.markdown("**Der Vergleich beider Varianten ergibt das es keine Überschneidungen gibt.**")
     st.subheader("Top Kunden nach Payment Value")
     customer_df = df.groupby("customer_unique_id")["payment_value"].sum().sort_values(ascending=False)
     customer_df = customer_df.reset_index()
@@ -756,6 +756,7 @@ elif auswahl == "8. Zusammenhänge der Variablen Lieferzeit, Versandkosten, Stan
     st.markdown("**Die Lieferverzögerungen führen natürlich zu einer Unzufriedenheit der Kunden.**")
     st.markdown("Ein Vergleich der Distanz erfolgreicher und nicht erfolgreicher Bestellungen ergab:")
     st.markdown("**Die mittlere Lieferdistanz ist um 32\% höher als bei den erfolgreich gelieferten Bestellungen. Das ist ein möglicher Grund für die verspäteten Lieferungen. Und erklärt möglicherweise auch, wieso die Verspätungen zumeist von den Lieferanten ausgehen.**")
+
 
 
 
