@@ -192,9 +192,6 @@ elif seite == "Hypothesen und Ergebnisse":
             "Vorgesetzte: Analog ist die Interpretation für die Vorgesetzten, auch hier gilt: "
             "**Mit steigender Unternehmensgröße die Anonymität und Distanz anwachsen und die Offenheit sinkt.**"
         },
-        "H7: Quotient....": {
-            "beschreibung":"jaaaaaa machen wir dann xd"
-        },
     }
 
     auswahl = st.selectbox("Wählen Sie eine Hypothese:", list(hypothesen.keys()))
@@ -337,6 +334,7 @@ elif seite == "Hypothesen und Ergebnisse":
             st.markdown(info["motivation"]) 
         with st.expander("Ergebnisse"):
             st.markdown(info["ergebnisse"])
+
 
 
 
