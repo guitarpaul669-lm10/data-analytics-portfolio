@@ -228,8 +228,8 @@ elif auswahl == "3. Top Kunden":
                   "011875f0176909c5cf0b14a9138bb691",
                   "f0767ae738c3d90e7b737d7b8b8bb4d1",
                   "bc5e25094a7d51b6aee35236572e64f4"]
-     gemeinsam = list(set(top_summe) & set(top_anzahl))
-    
+      
+	 gemeinsam = list(set(top_summe) & set(top_anzahl))
      url = "https://drive.google.com/uc?export=download&id=1Slc8-E9E6RIqWc46DtQzM_pt4qe-EXxV"
      url_1 = "https://drive.google.com/uc?export=download&id=14nIEVTnY3CwcWCWXIPTX1K9euT5cTShC"
      df = pd.read_csv(url)
@@ -814,6 +814,7 @@ elif auswahl == "8. Zusammenhänge der Variablen Lieferzeit, Versandkosten, Stan
     st.markdown("**Die Lieferverzögerungen führen natürlich zu einer Unzufriedenheit der Kunden.**")
     st.markdown("Ein Vergleich der Distanz erfolgreicher und nicht erfolgreicher Bestellungen ergab:")
     st.markdown("**Die mittlere Lieferdistanz ist um 32\% höher als bei den erfolgreich gelieferten Bestellungen. Das ist ein möglicher Grund für die verspäteten Lieferungen. Und erklärt möglicherweise auch, wieso die Verspätungen zumeist von den Lieferanten ausgehen.**")
+
 
 
 
