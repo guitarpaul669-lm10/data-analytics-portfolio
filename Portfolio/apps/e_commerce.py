@@ -186,6 +186,29 @@ elif auswahl == "3. Top Kunden":
     JOIN top_anzahl a 
     ON s.customer_unique_id = a.customer_unique_id;
     """
+	sql_query_4 = """
+ 	WITH top_anzahl AS (
+	SELECT cu.customer_id, 
+	cu.customer_unique_id,
+	COUNT(DISTINCT ord.order_id) AS anzahl_bestellungen
+	FROM customer cu
+	LEFT JOIN orders ord ON ord.customer_id = cu.customer_id
+	LEFT JOIN payment pa ON pa.order_id = ord.order_id
+	GROUP BY cu.customer_id, cu.customer_unique_id
+	ORDER BY anzahl_bestellungen DESC
+	LIMIT 20
+	)
+	SELECT pr.product_category_name, 
+	it.product_id,
+	COUNT(it.product_id) AS product_count 
+	FROM item it
+	LEFT JOIN products pr ON it.product_id = pr.product_id
+	LEFT JOIN orders ord ON ord.order_id = it.order_id
+	JOIN top_anzahl tp ON tp.customer_id = ord.customer_id
+	GROUP BY pr.product_category_name, it.product_id
+	ORDER BY product_count DESC
+	LIMIT 10;
+ 	"""
 
     top_summe = ["8d50f5eadf50201ccdcedfb9e2ac8455",
                  "3e43e6105506432c953e165fb2acf44c",
@@ -237,57 +260,114 @@ elif auswahl == "3. Top Kunden":
     st.markdown("Top Kunden können entweder nach der Bestellanzahl oder der Ausgaben eingeteilt werden.")
     df_gemeinsam = pd.DataFrame(gemeinsam, columns=["customer_unique_id"])
     st.dataframe(df_gemeinsam)
+	st.subheader("Verwendete SQL-Query")
+	st.code(sql_query_3, language = "sql")
     st.markdown("**Der Vergleich beider Varianten ergibt das es keine Überschneidungen gibt.**")
-    st.subheader("Top Kunden nach Payment Value")
-    customer_df = df.groupby("customer_unique_id")["payment_value"].sum().sort_values(ascending=False)
-    customer_df = customer_df.reset_index()
-    customer_df.columns = ["customer_unique_id", "payment_value"]
-    cust_df = customer_df.groupby("payment_value").count()
-    cust_df = cust_df.reset_index()
-    cust_df.columns = ["payment_value", "Count"]
-    fig = px.line(cust_df, x = "payment_value", y = "Count", title= "Verteilung der insgesamten Ausgaben", markers= False, labels= {"Count": "Anzahl", "payment_value": "Summe der Ausgaben"})
-    fig.update_layout(
-    xaxis_range=[0, 5000]
-    )
-    fig.add_vline(x=3826.80, line_width = 3, line_dash = "dash", line_color = "green", annotation_text = "Threshold der Top 20 Kunden", annotation_position = "top right")
-    st.plotly_chart(fig)
-    st.markdown("Der Großteil der Kunden bestellt nur eine geringe Menge und bei preisgünstige Produkte. Die Top 20 Kunden teilen sich zum einen in Leute die häufig bestellen und Personen, welche sehr teure Sachen einmalig bestellen.  \n"
-                "**Beispielsweise bezahlte der Top Kunde einmalig ein Auto für 13.664 Real. Somit wird das Kaufverhalten des Top Kundens nicht untersucht.**")
-    st.subheader("Verwendete SQL-Query")
-    st.code(sql_query, language="sql")
-    st.subheader("Herkunft der Kunden")
-    top_20_cust =  df.groupby("customer_unique_id")["payment_value"].sum().sort_values(ascending=False).head(20).index
-    top_cust_geo = cust_geo[cust_geo["customer_unique_id"].isin(top_20_cust)]
-    customers = go.Scattermapbox(
-    lat=cust_geo["cust_lat"],
-    lon=cust_geo["cust_lng"],
-    mode="markers",
-    marker=dict(size=6, color="blue"),
-    name="Kunden"
-    )
-    top_customers = go.Scattermapbox(
-    lat=top_cust_geo["cust_lat"],
-    lon=top_cust_geo["cust_lng"],
-    mode="markers",
-    marker=dict(size=8, color="red"),
-    name="Top Kunden"
-    )
-    fig = go.Figure()
-    fig.add_trace(customers) 
-    fig.add_trace(top_customers)
-    fig.update_layout(
-    mapbox = dict(
-        style = "open-street-map", 
-        center= dict(lat=-14.2350, lon=-51.9253),
-        zoom = 4
-    ), 
-    margin = {"r":0, "t":0, "l":0, "b":0},
-    height= 800
-    )
-    st.plotly_chart(fig)
-    st.markdown("**Der Großteil der Top Kunden kommen aus den Großstädten Brasiliens.**")
-    st.subheader("Verwendete SQL-Query")
-    st.code(sql_query_2, language = "sql")
+	wahl = st.radio("Analysegruppe wählen:",("Top Kunden nach Bestellwert", "Top Kunden nach Anzahl Bestellungen"))
+	if wahl == "Top Kunden nach Bestellwert":
+	    st.subheader("Top Kunden nach Payment Value")
+	    customer_df = df.groupby("customer_unique_id")["payment_value"].sum().sort_values(ascending=False)
+	    customer_df = customer_df.reset_index()
+	    customer_df.columns = ["customer_unique_id", "payment_value"]
+	    cust_df = customer_df.groupby("payment_value").count()
+	    cust_df = cust_df.reset_index()
+	    cust_df.columns = ["payment_value", "Count"]
+	    fig = px.line(cust_df, x = "payment_value", y = "Count", title= "Verteilung der insgesamten Ausgaben", markers= False, labels= {"Count": "Anzahl", "payment_value": "Summe der Ausgaben"})
+	    fig.update_layout(
+	    xaxis_range=[0, 5000]
+	    )
+	    fig.add_vline(x=3826.80, line_width = 3, line_dash = "dash", line_color = "green", annotation_text = "Threshold der Top 20 Kunden", annotation_position = "top right")
+	    st.plotly_chart(fig)
+	    st.markdown("Der Großteil der Kunden bestellt nur eine geringe Menge und bei preisgünstige Produkte. Die Top 20 Kunden teilen sich zum einen in Leute die häufig bestellen und Personen, welche sehr teure Sachen einmalig bestellen.  \n"
+	                "**Beispielsweise bezahlte der Top Kunde einmalig ein Auto für 13.664 Real. Somit wird das Kaufverhalten des Top Kundens nicht untersucht.**")
+	    st.subheader("Verwendete SQL-Query")
+	    st.code(sql_query, language="sql")
+	    st.subheader("Herkunft der Kunden")
+	    top_20_cust =  df.groupby("customer_unique_id")["payment_value"].sum().sort_values(ascending=False).head(20).index
+	    top_cust_geo = cust_geo[cust_geo["customer_unique_id"].isin(top_20_cust)]
+	    customers = go.Scattermapbox(
+	    lat=cust_geo["cust_lat"],
+	    lon=cust_geo["cust_lng"],
+	    mode="markers",
+	    marker=dict(size=6, color="blue"),
+	    name="Kunden"
+	    )
+	    top_customers = go.Scattermapbox(
+	    lat=top_cust_geo["cust_lat"],
+	    lon=top_cust_geo["cust_lng"],
+	    mode="markers",
+	    marker=dict(size=8, color="red"),
+	    name="Top Kunden"
+	    )
+	    fig = go.Figure()
+	    fig.add_trace(customers) 
+	    fig.add_trace(top_customers)
+	    fig.update_layout(
+	    mapbox = dict(
+	        style = "open-street-map", 
+	        center= dict(lat=-14.2350, lon=-51.9253),
+	        zoom = 4
+	    ), 
+	    margin = {"r":0, "t":0, "l":0, "b":0},
+	    height= 800
+	    )
+	    st.plotly_chart(fig)
+	    st.markdown("**Der Großteil der Top Kunden kommen aus den Großstädten Brasiliens.**")
+	    st.subheader("Verwendete SQL-Query")
+	    st.code(sql_query_2, language = "sql")
+	elif wahl == "Top Kunden nach Anzahl Bestellungen":
+		st.subheader("Top Kunden nach Anzahl Bestellungen")
+		df = df[df["customer_unique_id"].isin(top_anzahl)]
+	    customer_df = df.groupby("customer_unique_id")["payment_value"].sum().sort_values(ascending=False)
+	    customer_df = customer_df.reset_index()
+	    customer_df.columns = ["customer_unique_id", "payment_value"]
+	    cust_df = customer_df.groupby("payment_value").count()
+	    cust_df = cust_df.reset_index()
+	    cust_df.columns = ["payment_value", "Count"]
+	    fig = px.line(cust_df, x = "payment_value", y = "Count", title= "Verteilung der insgesamten Ausgaben", markers= False, labels= {"Count": "Anzahl", "payment_value": "Summe der Ausgaben"})
+	    fig.update_layout(
+	    xaxis_range=[0, 5000]
+	    )
+	    fig.add_vline(x=3826.80, line_width = 3, line_dash = "dash", line_color = "green", annotation_text = "Threshold der Top 20 Kunden", annotation_position = "top right")
+	    st.plotly_chart(fig)
+	    st.markdown("Der Großteil der Kunden bestellt nur eine geringe Menge und bei preisgünstige Produkte. Die Top 20 Kunden teilen sich zum einen in Leute die häufig bestellen und Personen, welche sehr teure Sachen einmalig bestellen.  \n"
+	                "**Beispielsweise bezahlte der Top Kunde einmalig ein Auto für 13.664 Real. Somit wird das Kaufverhalten des Top Kundens nicht untersucht.**")
+	    st.subheader("Verwendete SQL-Query")
+	    st.code(sql_query, language="sql")
+	    st.subheader("Herkunft der Kunden")
+	    top_20_cust =  df.groupby("customer_unique_id")["payment_value"].sum().sort_values(ascending=False).head(20).index
+	    top_cust_geo = cust_geo[cust_geo["customer_unique_id"].isin(top_20_cust)]
+	    customers = go.Scattermapbox(
+	    lat=cust_geo["cust_lat"],
+	    lon=cust_geo["cust_lng"],
+	    mode="markers",
+	    marker=dict(size=6, color="blue"),
+	    name="Kunden"
+	    )
+	    top_customers = go.Scattermapbox(
+	    lat=top_cust_geo["cust_lat"],
+	    lon=top_cust_geo["cust_lng"],
+	    mode="markers",
+	    marker=dict(size=8, color="red"),
+	    name="Top Kunden"
+	    )
+	    fig = go.Figure()
+	    fig.add_trace(customers) 
+	    fig.add_trace(top_customers)
+	    fig.update_layout(
+	    mapbox = dict(
+	        style = "open-street-map", 
+	        center= dict(lat=-14.2350, lon=-51.9253),
+	        zoom = 4
+	    ), 
+	    margin = {"r":0, "t":0, "l":0, "b":0},
+	    height= 800
+	    )
+	    st.plotly_chart(fig)
+	    st.markdown("**Der Großteil der Top Kunden kommen aus den Großstädten Brasiliens.**")
+	    st.subheader("Verwendete SQL-Query")
+	    st.code(sql_query_2, language = "sql")
+		
     
 
 
@@ -756,6 +836,7 @@ elif auswahl == "8. Zusammenhänge der Variablen Lieferzeit, Versandkosten, Stan
     st.markdown("**Die Lieferverzögerungen führen natürlich zu einer Unzufriedenheit der Kunden.**")
     st.markdown("Ein Vergleich der Distanz erfolgreicher und nicht erfolgreicher Bestellungen ergab:")
     st.markdown("**Die mittlere Lieferdistanz ist um 32\% höher als bei den erfolgreich gelieferten Bestellungen. Das ist ein möglicher Grund für die verspäteten Lieferungen. Und erklärt möglicherweise auch, wieso die Verspätungen zumeist von den Lieferanten ausgehen.**")
+
 
 
 
