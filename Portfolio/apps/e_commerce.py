@@ -239,7 +239,7 @@ elif auswahl == "3. Top Kunden":
     st.subheader("Verwendete SQL-Query")
 	st.code(sql_query_3, language = "sql")
 	wahl = st.radio("Analysegruppe wählen:",("Top Kunden nach Bestellwert", "Top Kunden nach Anzahl Bestellungen"))
-		if wahl == "Top Kunden nach Bestellwert":
+	if wahl == "Top Kunden nach Bestellwert":
 		    st.subheader("Top Kunden nach Payment Value")
 		    customer_df = df.groupby("customer_unique_id")["payment_value"].sum().sort_values(ascending=False)
 		    customer_df = customer_df.reset_index()
@@ -290,7 +290,7 @@ elif auswahl == "3. Top Kunden":
 		    st.markdown("**Der Großteil der Top Kunden kommen aus den Großstädten Brasiliens.**")
 		    st.subheader("Verwendete SQL-Query")
 		    st.code(sql_query_2, language = "sql")
-		elif wahl == "Top Kunden nach Anzahl Bestellungen":
+	elif wahl == "Top Kunden nach Anzahl Bestellungen":
 			st.subheader("Top Kunden nach Anzahl Bestellungen")
 			df = df[df["customer_unique_id"].isin(top_anzahl)]
 		    customer_df = df.groupby("customer_unique_id")["payment_value"].sum().sort_values(ascending=False)
@@ -811,6 +811,7 @@ elif auswahl == "8. Zusammenhänge der Variablen Lieferzeit, Versandkosten, Stan
     st.markdown("**Die Lieferverzögerungen führen natürlich zu einer Unzufriedenheit der Kunden.**")
     st.markdown("Ein Vergleich der Distanz erfolgreicher und nicht erfolgreicher Bestellungen ergab:")
     st.markdown("**Die mittlere Lieferdistanz ist um 32\% höher als bei den erfolgreich gelieferten Bestellungen. Das ist ein möglicher Grund für die verspäteten Lieferungen. Und erklärt möglicherweise auch, wieso die Verspätungen zumeist von den Lieferanten ausgehen.**")
+
 
 
 
