@@ -7,7 +7,7 @@ Hier präsentiere ich meine Projekte aus den Bereichen **SQL**, **Python**, **Da
 
 ## 🌐 Live-Demo
 Alle Projekte sind in einer **Streamlit-Web-App** gebündelt und können hier aufgerufen werden:  
-➡️ [Hier klicken, um die App zu öffnen](https://dein-link.streamlit.app)
+➡️ [Hier klicken, um die App zu öffnen](https://data-analytics-portfolio.streamlit.app/)
 
 ---
 
@@ -21,7 +21,7 @@ Alle Projekte sind in einer **Streamlit-Web-App** gebündelt und können hier au
   - Explorative Datenanalyse
   - Zeitreihen-Analyse
   - Visualisierungen in Plotly
-- **Notebook:** [Brazil-E-Commerce.ipynb](./Brazil-E-Commerce.ipynb)
+- **Notebook:** [Brazil-E-Commerce.ipynb](https://github.com/guitarpaul669-lm10/data-analytics-portfolio/blob/main/Portfolio/notebooks/Brazil-E-Commerce.ipynb)
 
 ---
 
@@ -33,7 +33,7 @@ Alle Projekte sind in einer **Streamlit-Web-App** gebündelt und können hier au
   - Deskriptive Visualisierungen
   - Hypothesenbildung
   - Regressionsanalysen
-- **Notebook:** [survey.ipynb](./survey.ipynb)
+- **Notebook:** [survey.ipynb](https://github.com/guitarpaul669-lm10/data-analytics-portfolio/blob/main/Portfolio/notebooks/survey.ipynb)
 
 ### 3️⃣ Projekt: Zusammenhang von den BIG FIVE (Persönlichkeitsfaktoren) mit der Jobzufriedenheit für verschiedene Arbeitsbereiche
 - **Beschreibung:** Auf Grundlage der Bachelorarbeit und der berechneten Regressionen, wird dieses Thema interaktiv visualisiert in einer Streamlit-App. Die Daten stammen vom Sozio-oekonomisches Panel (SOEP). 
@@ -43,7 +43,7 @@ Alle Projekte sind in einer **Streamlit-Web-App** gebündelt und können hier au
   - Erstellen von Variablen 
   - Datenbereinigung
   - Regressionsanalysen
-
+- **R-Skript:** [Job Zufriedenheit.R](https://github.com/guitarpaul669-lm10/data-analytics-portfolio/blob/main/Portfolio/notebooks/Job%20Zufriedenheit.R)
 
 ---
 
@@ -57,4 +57,5 @@ Alle Projekte sind in einer **Streamlit-Web-App** gebündelt und können hier au
 
 ## 📬 Kontakt
 - **LinkedIn:** [Dein LinkedIn-Profil](https://linkedin.com/in/deinprofil)
+
 - **E-Mail:** dein.email@example.com
