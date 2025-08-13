@@ -229,18 +229,18 @@ elif auswahl == "3. Top Kunden":
                   "f0767ae738c3d90e7b737d7b8b8bb4d1",
                   "bc5e25094a7d51b6aee35236572e64f4"]
       
-	 gemeinsam = list(set(top_summe) & set(top_anzahl))
-     url = "https://drive.google.com/uc?export=download&id=1Slc8-E9E6RIqWc46DtQzM_pt4qe-EXxV"
-     url_1 = "https://drive.google.com/uc?export=download&id=14nIEVTnY3CwcWCWXIPTX1K9euT5cTShC"
-     df = pd.read_csv(url)
-     cust_geo = pd.read_csv(url_1)
-     st.subheader("Differenzierung der Topkunden")
-     st.markdown("Top Kunden können entweder nach der Bestellanzahl oder der Ausgaben eingeteilt werden.")
-     df_gemeinsam = pd.DataFrame(gemeinsam, columns=["customer_unique_id"])
-     st.dataframe(df_gemeinsam)
-	 st.markdown("**Der Vergleich beider Varianten ergibt das es keine Überschneidungen gibt.**")
-     st.subheader("Verwendete SQL-Query")
-	 st.code(sql_query_3, language = "sql")
+	gemeinsam = list(set(top_summe) & set(top_anzahl))
+    url = "https://drive.google.com/uc?export=download&id=1Slc8-E9E6RIqWc46DtQzM_pt4qe-EXxV"
+    url_1 = "https://drive.google.com/uc?export=download&id=14nIEVTnY3CwcWCWXIPTX1K9euT5cTShC"
+    df = pd.read_csv(url)
+    cust_geo = pd.read_csv(url_1)
+    st.subheader("Differenzierung der Topkunden")
+    st.markdown("Top Kunden können entweder nach der Bestellanzahl oder der Ausgaben eingeteilt werden.")
+    df_gemeinsam = pd.DataFrame(gemeinsam, columns=["customer_unique_id"])
+    st.dataframe(df_gemeinsam)
+	st.markdown("**Der Vergleich beider Varianten ergibt das es keine Überschneidungen gibt.**")
+    st.subheader("Verwendete SQL-Query")
+	st.code(sql_query_3, language = "sql")
 	 wahl = st.radio("Analysegruppe wählen:",("Top Kunden nach Bestellwert", "Top Kunden nach Anzahl Bestellungen"))
 		if wahl == "Top Kunden nach Bestellwert":
 		    st.subheader("Top Kunden nach Payment Value")
@@ -814,6 +814,7 @@ elif auswahl == "8. Zusammenhänge der Variablen Lieferzeit, Versandkosten, Stan
     st.markdown("**Die Lieferverzögerungen führen natürlich zu einer Unzufriedenheit der Kunden.**")
     st.markdown("Ein Vergleich der Distanz erfolgreicher und nicht erfolgreicher Bestellungen ergab:")
     st.markdown("**Die mittlere Lieferdistanz ist um 32\% höher als bei den erfolgreich gelieferten Bestellungen. Das ist ein möglicher Grund für die verspäteten Lieferungen. Und erklärt möglicherweise auch, wieso die Verspätungen zumeist von den Lieferanten ausgehen.**")
+
 
 
 
