@@ -186,29 +186,7 @@ elif auswahl == "3. Top Kunden":
     JOIN top_anzahl a 
     ON s.customer_unique_id = a.customer_unique_id;
     """
-	sql_query_4 = """
- 	WITH top_anzahl AS (
-	SELECT cu.customer_id, 
-	cu.customer_unique_id,
-	COUNT(DISTINCT ord.order_id) AS anzahl_bestellungen
-	FROM customer cu
-	LEFT JOIN orders ord ON ord.customer_id = cu.customer_id
-	LEFT JOIN payment pa ON pa.order_id = ord.order_id
-	GROUP BY cu.customer_id, cu.customer_unique_id
-	ORDER BY anzahl_bestellungen DESC
-	LIMIT 20
-	)
-	SELECT pr.product_category_name, 
-	it.product_id,
-	COUNT(it.product_id) AS product_count 
-	FROM item it
-	LEFT JOIN products pr ON it.product_id = pr.product_id
-	LEFT JOIN orders ord ON ord.order_id = it.order_id
-	JOIN top_anzahl tp ON tp.customer_id = ord.customer_id
-	GROUP BY pr.product_category_name, it.product_id
-	ORDER BY product_count DESC
-	LIMIT 10;
- 	"""
+	
 
     top_summe = ["8d50f5eadf50201ccdcedfb9e2ac8455",
                  "3e43e6105506432c953e165fb2acf44c",
@@ -836,6 +814,7 @@ elif auswahl == "8. Zusammenhänge der Variablen Lieferzeit, Versandkosten, Stan
     st.markdown("**Die Lieferverzögerungen führen natürlich zu einer Unzufriedenheit der Kunden.**")
     st.markdown("Ein Vergleich der Distanz erfolgreicher und nicht erfolgreicher Bestellungen ergab:")
     st.markdown("**Die mittlere Lieferdistanz ist um 32\% höher als bei den erfolgreich gelieferten Bestellungen. Das ist ein möglicher Grund für die verspäteten Lieferungen. Und erklärt möglicherweise auch, wieso die Verspätungen zumeist von den Lieferanten ausgehen.**")
+
 
 
 
