@@ -33,7 +33,7 @@ if auswahl == "1. Welche Produkte sind am beliebtesten?":
     ORDER BY product_count DESC
     LIMIT 10;
     """ 
-    url = "https://drive.google.com/uc?export=download&id=1oQqqWleQTWuhYNJMM_i_J60qFYsy1oCV"
+		url = "https://drive.google.com/uc?export=download&id=1oQqqWleQTWuhYNJMM_i_J60qFYsy1oCV"
     df = pd.read_csv(url)
     top10 = df["product_category_name"].value_counts(normalize=True).head(10)
     top10_df = top10.reset_index()
@@ -811,6 +811,7 @@ elif auswahl == "8. Zusammenhänge der Variablen Lieferzeit, Versandkosten, Stan
     st.markdown("**Die Lieferverzögerungen führen natürlich zu einer Unzufriedenheit der Kunden.**")
     st.markdown("Ein Vergleich der Distanz erfolgreicher und nicht erfolgreicher Bestellungen ergab:")
     st.markdown("**Die mittlere Lieferdistanz ist um 32\% höher als bei den erfolgreich gelieferten Bestellungen. Das ist ein möglicher Grund für die verspäteten Lieferungen. Und erklärt möglicherweise auch, wieso die Verspätungen zumeist von den Lieferanten ausgehen.**")
+
 
 
 
