@@ -58,30 +58,30 @@ if auswahl == "1. Welche Produkte sind am beliebtesten?":
     
 elif auswahl == "2. Regionale vs. saisonale Verkaufsmuster":
     sql_query = """
-    SELECT cu.customer_city,
-    COUNT(ord.order_id) AS cust_count,
-    ROUND(COUNT(ord.order_id) * 100.0 / SUM(COUNT(ord.order_id)) OVER (), 2) AS percent
-    FROM orders ord
-    LEFT JOIN customer cu ON ord.customer_id = cu.customer_id
-    GROUP BY cu.customer_city
-    ORDER BY cust_count DESC
-    LIMIT 10;
+SELECT cu.customer_city,
+COUNT(ord.order_id) AS cust_count,
+ROUND(COUNT(ord.order_id) * 100.0 / SUM(COUNT(ord.order_id)) OVER (), 2) AS percent
+FROM orders ord
+LEFT JOIN customer cu ON ord.customer_id = cu.customer_id
+GROUP BY cu.customer_city
+ORDER BY cust_count DESC
+LIMIT 10;
     """
     sql_query_2 = """
-    SELECT ord.month_pur,
-    COUNT(ord.order_id) AS month_count, 
-    ROUND(COUNT(ord.order_id) * 100.0 / SUM(COUNT(ord.order_id)) OVER (), 2) AS percent
-    FROM orders ord
-    GROUP BY ord.month_pur
-    ORDER BY month_pur;
+SELECT ord.month_pur,
+COUNT(ord.order_id) AS month_count, 
+ROUND(COUNT(ord.order_id) * 100.0 / SUM(COUNT(ord.order_id)) OVER (), 2) AS percent
+FROM orders ord
+GROUP BY ord.month_pur
+ORDER BY month_pur;
     """
     sql_query_3 = """
-    SELECT DAY(str_to_date(ord.order_purchase_timestamp, '%Y-%m-%d %H:%i:%s')) AS day_only, 
-    COUNT(ord.order_id) AS day_count,
-    ROUND(COUNT(ord.order_id)*100.0/ SUM(COUNT(ord.order_id)) OVER (), 2) AS percent
-    FROM orders ord
-    GROUP BY day_only
-    ORDER BY percent DESC;
+SELECT DAY(str_to_date(ord.order_purchase_timestamp, '%Y-%m-%d %H:%i:%s')) AS day_only, 
+COUNT(ord.order_id) AS day_count,
+ROUND(COUNT(ord.order_id)*100.0/ SUM(COUNT(ord.order_id)) OVER (), 2) AS percent
+FROM orders ord
+GROUP BY day_only
+ORDER BY percent DESC;
     """
     url = "https://drive.google.com/uc?export=download&id=1xoyVRaqaawTHxmGVpQDsIkx0NvBJ3NxA"
     df = pd.read_csv(url)
@@ -811,6 +811,7 @@ elif auswahl == "8. Zusammenhänge der Variablen Lieferzeit, Versandkosten, Stan
     st.markdown("**Die Lieferverzögerungen führen natürlich zu einer Unzufriedenheit der Kunden.**")
     st.markdown("Ein Vergleich der Distanz erfolgreicher und nicht erfolgreicher Bestellungen ergab:")
     st.markdown("**Die mittlere Lieferdistanz ist um 32\% höher als bei den erfolgreich gelieferten Bestellungen. Das ist ein möglicher Grund für die verspäteten Lieferungen. Und erklärt möglicherweise auch, wieso die Verspätungen zumeist von den Lieferanten ausgehen.**")
+
 
 
 
