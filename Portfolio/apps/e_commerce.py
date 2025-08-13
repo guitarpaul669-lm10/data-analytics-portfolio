@@ -131,8 +131,7 @@ elif auswahl == "2. Regionale vs. saisonale Verkaufsmuster":
     st.code(sql_query_3, language = "sql")
 
 elif auswahl == "3. Top Kunden":
-	
-    sql_query = """
+	sql_query = """
     SELECT DISTINCT cu.customer_unique_id,
     SUM(pa.payment_value) AS summe_bestellungen
     FROM customer cu
@@ -814,6 +813,7 @@ elif auswahl == "8. Zusammenhänge der Variablen Lieferzeit, Versandkosten, Stan
     st.markdown("**Die Lieferverzögerungen führen natürlich zu einer Unzufriedenheit der Kunden.**")
     st.markdown("Ein Vergleich der Distanz erfolgreicher und nicht erfolgreicher Bestellungen ergab:")
     st.markdown("**Die mittlere Lieferdistanz ist um 32\% höher als bei den erfolgreich gelieferten Bestellungen. Das ist ein möglicher Grund für die verspäteten Lieferungen. Und erklärt möglicherweise auch, wieso die Verspätungen zumeist von den Lieferanten ausgehen.**")
+
 
 
 
