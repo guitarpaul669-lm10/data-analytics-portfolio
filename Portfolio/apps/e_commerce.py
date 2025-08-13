@@ -186,48 +186,46 @@ elif auswahl == "3. Top Kunden":
     JOIN top_anzahl a 
     ON s.customer_unique_id = a.customer_unique_id;
     """
-	
-
-    top_summe = ["8d50f5eadf50201ccdcedfb9e2ac8455",
-                 "3e43e6105506432c953e165fb2acf44c",
-                 "ca77025e7201e3b30c44b472ff346268",
-                 "6469f99c1f9dfae7733b25662e7f1782",
-                 "1b6c7548a2a1f9037c1fd3ddfed95f33",
-                 "63cfc61cee11cbe306bff5857d00bfe4",
-                 "f0e310a6839dce9de1638e0fe5ab282a",
-                 "dc813062e0fc23409cd255f7f53c7074",
-                 "12f5d6e1cbf93dafd9dcc19095df0b3d",
-                 "47c1a3033b8b77b3ab6e109eb4d5fdf3",
-                 "5e8f38a9a1c023f3db718edcf926a2db",
-                 "4e65032f1f574189fb793bac5a867bbc",
-                 "b4e4f24de1e8725b74e4a1f4975116ed",
-                 "fe81bb32c243a86b2f86fbf053fe6140",
-                 "394ac4de8f3acb14253c177f0e15bc58",
-                 "56c8638e7c058b98aae6d74d2dd6ea23",
-                 "35ecdf6858edc6427223b64804cf028e",
-                 "74cb1ad7e6d5674325c1f99b5ea30d82",
-                 "de34b16117594161a6a89c50b289d35a",
-                 "7305430719d715992b00be82af4a6aa8"]
+	top_summe = ["8d50f5eadf50201ccdcedfb9e2ac8455",
+    "3e43e6105506432c953e165fb2acf44c",
+    "ca77025e7201e3b30c44b472ff346268",
+    "6469f99c1f9dfae7733b25662e7f1782",
+    "1b6c7548a2a1f9037c1fd3ddfed95f33",
+    "63cfc61cee11cbe306bff5857d00bfe4",
+    "f0e310a6839dce9de1638e0fe5ab282a",
+    "dc813062e0fc23409cd255f7f53c7074",
+    "12f5d6e1cbf93dafd9dcc19095df0b3d",
+    "47c1a3033b8b77b3ab6e109eb4d5fdf3",
+    "5e8f38a9a1c023f3db718edcf926a2db",
+    "4e65032f1f574189fb793bac5a867bbc",
+    "b4e4f24de1e8725b74e4a1f4975116ed",
+    "fe81bb32c243a86b2f86fbf053fe6140",
+    "394ac4de8f3acb14253c177f0e15bc58",
+    "56c8638e7c058b98aae6d74d2dd6ea23",
+    "35ecdf6858edc6427223b64804cf028e",
+    "74cb1ad7e6d5674325c1f99b5ea30d82",
+    "de34b16117594161a6a89c50b289d35a",
+    "7305430719d715992b00be82af4a6aa8"]
     top_anzahl = ["0a0a92112bd4c708ca5fde585afaa872",
-                  "da122df9eeddfedc1dc1f5349a1a690c",
-                  "763c8b1c9c68a0229c42c9fc6f662b93",
-                  "dc4802a71eae9be1dd28f5d788ceb526",
-                  "459bef486812aa25204be022145caa62",
-                  "ff4159b92c40ebe40454e3e6a7c35ed6",
-                  "4007669dec559734d6f53e029e360987",
-                  "eebb5dda148d3893cdaf5b5ca3040ccb",
-                  "48e1ac109decbb87765a3eade6854098",
-                  "c8460e4251689ba205045f3ea17884a1",
-                  "edde2314c6c30e864a128ac95d6b2112",
-                  "a229eba70ec1c2abef51f04987deb7a5",
-                  "edf81e1f3070b9dac83ec83dacdbb9bc",
-                  "fa562ef24d41361e476e748681810e1e",
-                  "ca27f3dac28fb1063faddd424c9d95fa",
-                  "5e713be0853d8986528d7869a0811d2b",
-                  "58483a1c055dfb600f57c5b867174542",
-                  "011875f0176909c5cf0b14a9138bb691",
-                  "f0767ae738c3d90e7b737d7b8b8bb4d1",
-                  "bc5e25094a7d51b6aee35236572e64f4"]
+    "da122df9eeddfedc1dc1f5349a1a690c",
+    "763c8b1c9c68a0229c42c9fc6f662b93",
+    "dc4802a71eae9be1dd28f5d788ceb526",
+    "459bef486812aa25204be022145caa62",
+    "ff4159b92c40ebe40454e3e6a7c35ed6",
+    "4007669dec559734d6f53e029e360987",
+    "eebb5dda148d3893cdaf5b5ca3040ccb",
+    "48e1ac109decbb87765a3eade6854098",
+    "c8460e4251689ba205045f3ea17884a1",
+    "edde2314c6c30e864a128ac95d6b2112",
+    "a229eba70ec1c2abef51f04987deb7a5",
+    "edf81e1f3070b9dac83ec83dacdbb9bc",
+    "fa562ef24d41361e476e748681810e1e",
+    "ca27f3dac28fb1063faddd424c9d95fa",
+    "5e713be0853d8986528d7869a0811d2b",
+    "58483a1c055dfb600f57c5b867174542",
+    "011875f0176909c5cf0b14a9138bb691",
+    "f0767ae738c3d90e7b737d7b8b8bb4d1",
+    "bc5e25094a7d51b6aee35236572e64f4"]
 	gemeinsam = list(set(top_summe) & set(top_anzahl))
     url = "https://drive.google.com/uc?export=download&id=1Slc8-E9E6RIqWc46DtQzM_pt4qe-EXxV"
     url_1 = "https://drive.google.com/uc?export=download&id=14nIEVTnY3CwcWCWXIPTX1K9euT5cTShC"
@@ -813,6 +811,7 @@ elif auswahl == "8. Zusammenhänge der Variablen Lieferzeit, Versandkosten, Stan
     st.markdown("**Die Lieferverzögerungen führen natürlich zu einer Unzufriedenheit der Kunden.**")
     st.markdown("Ein Vergleich der Distanz erfolgreicher und nicht erfolgreicher Bestellungen ergab:")
     st.markdown("**Die mittlere Lieferdistanz ist um 32\% höher als bei den erfolgreich gelieferten Bestellungen. Das ist ein möglicher Grund für die verspäteten Lieferungen. Und erklärt möglicherweise auch, wieso die Verspätungen zumeist von den Lieferanten ausgehen.**")
+
 
 
 
