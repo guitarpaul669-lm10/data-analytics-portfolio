@@ -54,7 +54,7 @@ if auswahl == "1. Welche Produktkategorien sind am beliebtesten?":
 
         st.plotly_chart(fig, use_container_width=True)
         st.markdown("Die Ergebnisse zeigen die beliebtesten 10 Produktkategorien. Die Produktkategorien sind sehr ausgeglichen und ähneln sich nicht. Dadurch erkennt man kein Muster über die angebotenen/bestellten Produkte.")
-        st.markdown("**Die Preise reichen von 70 € bis 200€**")
+        st.markdown("**Die Preise reichen von 70 € bis 200€.**")
         st.subheader("Verwendete SQL-Query")
         st.code(sql_query, language="sql")
         
@@ -919,6 +919,7 @@ elif auswahl == "8. Zusammenhänge der Variablen Lieferzeit, Versandkosten, Stan
         st.markdown("**Die Lieferverzögerungen führen natürlich zu einer Unzufriedenheit der Kunden.**")
         st.markdown("Ein Vergleich der Distanz erfolgreicher und nicht erfolgreicher Bestellungen ergab:")
         st.markdown("**Die mittlere Lieferdistanz ist um 32\% höher als bei den erfolgreich gelieferten Bestellungen. Das ist ein möglicher Grund für die verspäteten Lieferungen. Und erklärt möglicherweise auch, wieso die Verspätungen zumeist von den Lieferanten ausgehen.**")
+
 
 
 
