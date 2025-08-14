@@ -10,7 +10,7 @@ import plotly.graph_objects as go
 st.title("E-Commerce Analyse Übersicht")
 
 analyse = [
-    "1. Welche Produkte sind am beliebtesten?",
+    "1. Welche Produktkategorien sind am beliebtesten?",
     "2. Regionale vs. saisonale Verkaufsmuster",
     "3. Top Kunden",
     "4. Top Anbieter",
@@ -22,14 +22,15 @@ analyse = [
 
 auswahl = st.selectbox("Wählen Sie eine Analyse:", analyse)
 
-if auswahl == "1. Welche Produkte sind am beliebtesten?":
+if auswahl == "1. Welche Produktkategorien sind am beliebtesten?":
         sql_query = """
-        SELECT pr.product_category_name, 
-        it.product_id,
-        COUNT(it.product_id) AS product_count 
+        SELECT DISTINCT pr.product_category_name, 
+        AVG(it.price) AS mean_price,
+        COUNT(DISTINCT ord.order_id) AS product_count
         FROM item it
         LEFT JOIN products pr ON it.product_id = pr.product_id
-        GROUP BY pr.product_category_name, it.product_id
+        LEFT JOIN orders ord ON ord.order_id = it.order_id
+        GROUP BY pr.product_category_name
         ORDER BY product_count DESC
         LIMIT 10;
         """ 
@@ -53,6 +54,7 @@ if auswahl == "1. Welche Produkte sind am beliebtesten?":
 
         st.plotly_chart(fig, use_container_width=True)
         st.markdown("Die Ergebnisse zeigen die beliebtesten 10 Produktkategorien. Die Produktkategorien sind sehr ausgeglichen und ähneln sich nicht. Dadurch erkennt man kein Muster über die angebotenen/bestellten Produkte.")
+        st.markdown("**Die Preise reichen von 70 € bis 200€**")
         st.subheader("Verwendete SQL-Query")
         st.code(sql_query, language="sql")
         
@@ -917,6 +919,7 @@ elif auswahl == "8. Zusammenhänge der Variablen Lieferzeit, Versandkosten, Stan
         st.markdown("**Die Lieferverzögerungen führen natürlich zu einer Unzufriedenheit der Kunden.**")
         st.markdown("Ein Vergleich der Distanz erfolgreicher und nicht erfolgreicher Bestellungen ergab:")
         st.markdown("**Die mittlere Lieferdistanz ist um 32\% höher als bei den erfolgreich gelieferten Bestellungen. Das ist ein möglicher Grund für die verspäteten Lieferungen. Und erklärt möglicherweise auch, wieso die Verspätungen zumeist von den Lieferanten ausgehen.**")
+
 
 
 
