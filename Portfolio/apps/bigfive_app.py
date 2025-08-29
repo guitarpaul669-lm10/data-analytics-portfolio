@@ -40,7 +40,7 @@ if "antworten" not in st.session_state:
 if seite == "Fragebogen":
 
     st.title("Persönlichkeitsmodell der Job Satisfaction für Berufsgruppen")
-    st.markdown("In diesem Programm ...")
+    st.markdown("In der App werden die Big-Five-Persönlichkeitsmerkmale sowie weitere Variablen erfasst und mithilfe von Regressionsanalysen einer passenden Berufsgruppe zugeordnet – mit Fokus auf Jobzufriedenheit.")
     st.divider()
     st.header("Personangaben")
     with st.form(key="person_info"):
@@ -223,3 +223,4 @@ elif seite == "Berufsempfehlung":
             for bereich, score in sorted(scores.items(), key=lambda x: x[1], reverse=True):
 
                 st.write(f"{bereich}: {score:.2f}")
+
