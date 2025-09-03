@@ -7,7 +7,7 @@ import plotly.subplots as sp
 from plotly.subplots import make_subplots
 import plotly.graph_objects as go
 
-st.title("E-Commerce Analyse Übersicht")
+st.title("E-Commerce Analyse")
 st.markdown("****")
 analyse = [
     "0. Projektübersicht",
@@ -924,6 +924,7 @@ elif auswahl == "8. Zusammenhänge der Variablen Lieferzeit, Versandkosten, Stan
         st.markdown("**Die Lieferverzögerungen führen natürlich zu einer Unzufriedenheit der Kunden.**")
         st.markdown("Ein Vergleich der Distanz erfolgreicher und nicht erfolgreicher Bestellungen ergab:")
         st.markdown("**Die mittlere Lieferdistanz ist um 32\% höher als bei den erfolgreich gelieferten Bestellungen. Das ist ein möglicher Grund für die verspäteten Lieferungen. Und erklärt möglicherweise auch, wieso die Verspätungen zumeist von den Lieferanten ausgehen.**")
+
 
 
 
