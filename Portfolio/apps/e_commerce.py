@@ -8,8 +8,9 @@ from plotly.subplots import make_subplots
 import plotly.graph_objects as go
 
 st.title("E-Commerce Analyse Übersicht")
-
+st.markdown("****")
 analyse = [
+    "0. Projektübersicht"
     "1. Welche Produktkategorien sind am beliebtesten?",
     "2. Regionale vs. saisonale Verkaufsmuster",
     "3. Top Kunden",
@@ -22,6 +23,9 @@ analyse = [
 
 auswahl = st.selectbox("Wählen Sie eine Analyse:", analyse)
 
+if auswahl == "0. Projektübersicht"
+        st.markdown("In diesem Projekt wird ein umfangreicher E-Commerce-Datensatz analysiert, um tiefere Einblicke in das Bestellverhalten von Kunden, die Rolle der Anbieter sowie regionale Unterschiede zu gewinnen. Neben grundlegender Datenbereinigung erfolgt eine explorative Datenanalyse, die zentrale Muster und Auffälligkeiten im Datensatz sichtbar macht.")
+        st.image("Portfolio/Images/ER_Diagramm.png", caption="ER-Diagramm der Datenbank", use_container_width=True)
 if auswahl == "1. Welche Produktkategorien sind am beliebtesten?":
         sql_query = """
         SELECT DISTINCT pr.product_category_name, 
@@ -919,6 +923,7 @@ elif auswahl == "8. Zusammenhänge der Variablen Lieferzeit, Versandkosten, Stan
         st.markdown("**Die Lieferverzögerungen führen natürlich zu einer Unzufriedenheit der Kunden.**")
         st.markdown("Ein Vergleich der Distanz erfolgreicher und nicht erfolgreicher Bestellungen ergab:")
         st.markdown("**Die mittlere Lieferdistanz ist um 32\% höher als bei den erfolgreich gelieferten Bestellungen. Das ist ein möglicher Grund für die verspäteten Lieferungen. Und erklärt möglicherweise auch, wieso die Verspätungen zumeist von den Lieferanten ausgehen.**")
+
 
 
 
