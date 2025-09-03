@@ -10,7 +10,7 @@ import plotly.graph_objects as go
 st.title("E-Commerce Analyse Übersicht")
 st.markdown("****")
 analyse = [
-    "0. Projektübersicht"
+    "0. Projektübersicht",
     "1. Welche Produktkategorien sind am beliebtesten?",
     "2. Regionale vs. saisonale Verkaufsmuster",
     "3. Top Kunden",
@@ -924,6 +924,7 @@ elif auswahl == "8. Zusammenhänge der Variablen Lieferzeit, Versandkosten, Stan
         st.markdown("**Die Lieferverzögerungen führen natürlich zu einer Unzufriedenheit der Kunden.**")
         st.markdown("Ein Vergleich der Distanz erfolgreicher und nicht erfolgreicher Bestellungen ergab:")
         st.markdown("**Die mittlere Lieferdistanz ist um 32\% höher als bei den erfolgreich gelieferten Bestellungen. Das ist ein möglicher Grund für die verspäteten Lieferungen. Und erklärt möglicherweise auch, wieso die Verspätungen zumeist von den Lieferanten ausgehen.**")
+
 
 
 
