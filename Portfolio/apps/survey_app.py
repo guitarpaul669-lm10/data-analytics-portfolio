@@ -41,7 +41,7 @@ seite = st.sidebar.radio("Navigation", ["Startseite","Variablen-Verteilungen", "
 st.title("Mentale Gesundheit in der technischen Industrie")
 
 if seite == "Startseite":
-   st.markdown("In dieser Anwendung können Sie die Verteilungen der wichtigsten Variablen im Datensatz interaktiv erkunden und eigene Eindrücke zum Zusammenhang von Alter, Geschlecht, Vorerkrankungen, Unternehmensgröße, psychischer Gesundheit,... gewinnen. \n\n"
+   st.markdown("In dieser Anwendung können Sie die Verteilungen der wichtigsten Variablen im Datensatz interaktiv erkunden und eigene Eindrücke zum Zusammenhang von Alter, Geschlecht, Vorerkrankungen, Unternehmensgröße, psychischer Gesundheit, und viele mehr gewinnen. \n\n"
                "Darüber hinaus sind verschiedene Hypothesen und deren Analysen integriert, die durch statistische Verfahren wie logistische Regression überprüft wurden. Jede Hypothese enthält eine kurze Beschreibung, die Motivation der Annahme sowie die Ergebnisse und Interpretationen.\n\n"
                "So bietet die Anwendung sowohl eine explorative Datenanalyse als auch eine strukturierte Überprüfung von Hypothesen, die zu neuen Einsichten und Diskussionen anregen können."
               )
@@ -340,6 +340,7 @@ elif seite == "Hypothesen und Ergebnisse":
             st.markdown(info["motivation"]) 
         with st.expander("Ergebnisse"):
             st.markdown(info["ergebnisse"])
+
 
 
 
