@@ -10,6 +10,8 @@ st.markdown("""
 Willkommen!  
 Hier findest du eine Auswahl der Data-Analytics-Projekte mit interaktiven Dashboards, Analysen und Visualisierungen.
 """)
+st.markdown("[💻 Programmier-Badges auf Hackerrank in SQL und Python](https://www.hackerrank.com/profile/guitarpaul669)")
+
 
 # --- Navigation über Tabs ---
 tab1, tab2, tab3 = st.tabs(["🛒 Projekt 1", "🧑‍⚕️ Projekt 2", " 🗒 Projekt 3"])
@@ -64,6 +66,7 @@ with tab3:
         st.markdown("[🔗 Streamlit App öffnen](https://data-analytics-portfolio-bigfive.streamlit.app)")
     with col2:
         st.markdown("[💻 Code auf GitHub](https://github.com/guitarpaul669-lm10/data-analytics-portfolio/blob/main/Portfolio/notebooks/Job%20Zufriedenheit.R)")
+
 
 
 
