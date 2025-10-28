@@ -62,6 +62,8 @@ elif auswahl == "1. Welche Produktkategorien sind am beliebtesten?":
         st.markdown("**Die Preise reichen von 70 € bis 200€.**")
         st.subheader("Verwendete SQL-Query")
         st.code(sql_query, language="sql")
+        with st.expander("Nächste Schritte (bei vollständiger Dateneinsicht)"):
+            st.markdown("Ich würde die Profitabilität beider Gruppen untersuchen, um gezielt Maßnahmen wie Kundenbindung oder Premiumservice zu entwickeln. Zudem könnte man eine Kohortenanalyse einleiten, um somit durch eine generierte Variable (**Bsp. Customer-Lifetime Value**) Strategien abzuleiten.")
         
 elif auswahl == "2. Regionale vs. saisonale Verkaufsmuster":
         sql_query = """
@@ -924,6 +926,7 @@ elif auswahl == "8. Zusammenhänge der Variablen Lieferzeit, Versandkosten, Stan
         st.markdown("**Die Lieferverzögerungen führen natürlich zu einer Unzufriedenheit der Kunden.**")
         st.markdown("Ein Vergleich der Distanz erfolgreicher und nicht erfolgreicher Bestellungen ergab:")
         st.markdown("**Die mittlere Lieferdistanz ist um 32\% höher als bei den erfolgreich gelieferten Bestellungen. Das ist ein möglicher Grund für die verspäteten Lieferungen. Und erklärt möglicherweise auch, wieso die Verspätungen zumeist von den Lieferanten ausgehen.**")
+
 
 
 
