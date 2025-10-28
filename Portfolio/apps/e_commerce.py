@@ -139,7 +139,7 @@ elif auswahl == "2. Regionale vs. saisonale Verkaufsmuster":
         st.subheader("Verwendete SQL-Query")
         st.code(sql_query_3, language = "sql")
          with st.expander("Nächste Schritte (bei vollständiger Dateneinsicht)"):
-              st.markdown("Man könnte man Deckungsbeiträge der Regionen ermitteln um so die Profitabilität der Regionen zu bewerten. Diese Analyse zeigt, wie Nachfrage saisonal und regional schwankt. Ich würde hier gezielt Budgets oder Marketingmaßnahmen regional anpassen.")
+             st.markdown("Man könnte man Deckungsbeiträge der Regionen ermitteln um so die Profitabilität der Regionen zu bewerten. Diese Analyse zeigt, wie Nachfrage saisonal und regional schwankt. Ich würde hier gezielt Budgets oder Marketingmaßnahmen regional anpassen.")
     
 
 elif auswahl == "3. Top Kunden":	
@@ -947,6 +947,7 @@ elif auswahl == "8. Zusammenhänge der Variablen Lieferzeit, Versandkosten, Stan
         with st.expander("Nächste Schritte (bei vollständiger Dateneinsicht)"):
             st.markdown("Durch eine Einführung von Lieferantenbewertungen kann man Standortoptimierungen durchführen und somit gezielt Kosten senken.")
         
+
 
 
 
