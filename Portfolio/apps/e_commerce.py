@@ -138,9 +138,9 @@ elif auswahl == "2. Regionale vs. saisonale Verkaufsmuster":
         )
         st.subheader("Verwendete SQL-Query")
         st.code(sql_query_3, language = "sql")
-        with st.expander("Nächste Schritte (bei vollständiger Dateneinsicht)"):
-            st.markdown("Ich würde Kundenwerte modellieren, um zu sehen, welche Segmente langfristig am profitabelsten sind und wo Verbesserung zu einer Umsatzsteigerung führen können. Zudem wäre eine Deckungsbeitragsrechnung auf Kundenebene sinnvoll, um die Liquidität zu gewährleisten.")
-        
+         with st.expander("Nächste Schritte (bei vollständiger Dateneinsicht)"):
+              st.markdown("Man könnte man Deckungsbeiträge der Regionen ermitteln um so die Profitabilität der Regionen zu bewerten. Diese Analyse zeigt, wie Nachfrage saisonal und regional schwankt. Ich würde hier gezielt Budgets oder Marketingmaßnahmen regional anpassen.")
+    
 
 elif auswahl == "3. Top Kunden":	
         sql_query = """
@@ -343,6 +343,8 @@ elif auswahl == "3. Top Kunden":
         st.markdown("**Der Vergleich beider Varianten ergibt das es keine Überschneidungen gibt.**")
         st.subheader("Verwendete SQL-Query")
         st.code(sql_query_3, language = "sql")
+        with st.expander("Nächste Schritte (bei vollständiger Dateneinsicht)"):
+            st.markdown("Ich würde Kundenwerte modellieren, um zu sehen, welche Segmente langfristig am profitabelsten sind und wo Verbesserung zu einer Umsatzsteigerung führen können. Zudem wäre eine Deckungsbeitragsrechnung auf Kundenebene sinnvoll, um die Liquidität zu gewährleisten.")
         st.subheader("Auswahl der Analyse")
         wahl = st.radio("**Analysegruppe wählen:**",("Top Kunden nach Bestellwert", "Top Kunden nach Anzahl Bestellungen"))
         if wahl == "Top Kunden nach Bestellwert":
@@ -609,7 +611,10 @@ elif auswahl == "4. Top Anbieter":
         st.plotly_chart(fig)
         st.markdown("Es lässt sich kein Unterschied zwischen allen und den Top 10 Anbietern erkennen.")
         st.markdown("**Jedoch überzeugt der Top Lieferant mit der schnellsten Lieferzeit in hohem Maße.**")
-        
+        with st.expander("Nächste Schritte (bei vollständiger Dateneinsicht)"):
+            st.markdown("Aufgrund der hohen Marktkonzentration kann es zu Risiken kommen (Monopolbildung und Abhängigkeit durch einen Anbieter). Eine weitere Analyse durch eine Lorenzkurve für die Darstellung der Konzentration und Marktstruktur wären von Vorteil. \n\n")
+            st.markdown("Zudem zeigen die Ergebnisse eine Sortimentbreite der Top 10 Anbieter und Spezialisierung des Top Anbieters. Somit könnte man ableiten, welche Strategien sinnvoll sind. Beispielsweise können die Anbieter mit einem diversen Produktportfolio Marktschwankungen besser verarbeiten. Der Top-Anbieter nicht und trägt damit höhere Risiken, welche man durch Simulationen überprüfen kann und durch Analysen des Markts. \n\n")
+            st.markdown("Zur Kontrolle der Lieferzeiten kann man KPI's definieren um somit die Qualität und Effizenz zu gewährleisten. Dies kann zu einer höheren Kundenzufriedenheit führen")
 elif auswahl == "5. Durchschnittlicher Warenkorbwert und Produktanzahl":
         sql_query = """
         SELECT AVG(pa.payment_value)
@@ -659,7 +664,11 @@ elif auswahl == "5. Durchschnittlicher Warenkorbwert und Produktanzahl":
         st.subheader("Verwendete SQL-Query")
         st.markdown("**Die meisten Kunden bestellen nur ein Produkt pro Kauf.**")
         st.code(sql_query_2, language = "sql")
-
+        with st.expander("Nächste Schritte (bei vollständiger Dateneinsicht)"):
+            st.markdown("Der Warenkorbwert ist eine wichtige Steuerungsgröße, um Preisstrategien und Kundenverhalten zu bewerten. Eine Segmentierung nach Produktkategorien, Regionen und Kundentypen könnte zum Verständnis des Bestellwertes führen. Sie ist somit eine geeignete Kennzahl im Umsatzreporting und Absatz-Deckungsbeitragssystem. \n\n")
+            st.markdown("Die Einteilung in Vielkäufer mit geringen Warenkorbwert, wie auch Einmalkäufer mit hohem Warenwert könnte mit Maßnahmen, wie Cross-Selling, Service-Pakete oder Premiumangebote verbunden werden.")
+        
+        
 elif auswahl == "6. Abgebrochene Bestellungen (Hinweise und Muster)":
         sql_query = """
         SELECT DISTINCT ordna.customer_id,
@@ -711,6 +720,9 @@ elif auswahl == "6. Abgebrochene Bestellungen (Hinweise und Muster)":
         st.subheader("Produktarten")
         st.code(sql_query_3, language = "sql")
         st.markdown("**Bestimmte Produktkategorien sind auch keine Ursache für abgebrochene Bestellungen.**")
+        with st.expander("Nächste Schritte (bei vollständiger Dateneinsicht)"):
+            st.markdown("Die einzig signifikante Faktor ist die Lieferzeit. Das bedeutet das die Prozesszeoten und Lieferzeiten einen direkten Einfluss auf den Umsatz haben. In Zusammenarbeit mit der Logistik könnte dazuführen Lieferprozesse zu beschleunigen, Kosten einzusparen und somit auch die Kundenzufriedenheit zu gewährleisten.)")
+        
         
 
 elif auswahl == "7. Review-Score":
@@ -864,6 +876,9 @@ elif auswahl == "7. Review-Score":
         st.plotly_chart(fig)
         st.markdown("**Die Mehrheit der Bewertungen fällt negativ aus, wobei 2-Sterne-Bewertungen am häufigsten vorkommen. Positive Bewertungen sind in der Minderheit und verteilen sich über die Lieferzeit hinsichtlich der Anteile weniger**  \n"
                     "Möglicherweise sind diese Produkt in Masse vorhanden, was für eine schlechtere Qualität (ergo schlechtere Bewertungen) sprechen könnte.")
+        with st.expander("Nächste Schritte (bei vollständiger Dateneinsicht)"):
+            st.markdown("Eine Strategie-Ableitung zur Steigerung der Qualität durch eine Spezialisierung lässt sich ableiten. Gut bewertete Anbieter weisen diese Tatsache vor. Eine Definition von Qualitätskennzahlen um Prozesse zu überwachen und eine Kundenzufriedenheit zu gewährleisten.")
+        
         
 
 elif auswahl == "8. Zusammenhänge der Variablen Lieferzeit, Versandkosten, Standorte":
@@ -929,6 +944,9 @@ elif auswahl == "8. Zusammenhänge der Variablen Lieferzeit, Versandkosten, Stan
         st.markdown("**Die Lieferverzögerungen führen natürlich zu einer Unzufriedenheit der Kunden.**")
         st.markdown("Ein Vergleich der Distanz erfolgreicher und nicht erfolgreicher Bestellungen ergab:")
         st.markdown("**Die mittlere Lieferdistanz ist um 32\% höher als bei den erfolgreich gelieferten Bestellungen. Das ist ein möglicher Grund für die verspäteten Lieferungen. Und erklärt möglicherweise auch, wieso die Verspätungen zumeist von den Lieferanten ausgehen.**")
+        with st.expander("Nächste Schritte (bei vollständiger Dateneinsicht)"):
+            st.markdown("Durch eine Einführung von Lieferantenbewertungen kann man Standortoptimierungen durchführen und somit gezielt Kosten senken.")
+        
 
 
 
