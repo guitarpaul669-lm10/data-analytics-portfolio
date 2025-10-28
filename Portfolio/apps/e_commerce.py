@@ -612,7 +612,7 @@ elif auswahl == "4. Top Anbieter":
         st.markdown("Es lässt sich kein Unterschied zwischen allen und den Top 10 Anbietern erkennen.")
         st.markdown("**Jedoch überzeugt der Top Lieferant mit der schnellsten Lieferzeit in hohem Maße.**")
         with st.expander("Nächste Schritte (bei vollständiger Dateneinsicht)"):
-            st.markdown("Aufgrund der hohen Marktkonzentration kann es zu Risiken kommen (Monopolbildung und Abhängigkeit durch einen Anbieter). Eine weitere Analyse durch eine Lorenzkurve für die Darstellung der Konzentration und Marktstruktur wären von Vorteil. \n\n")
+            st.markdown("Aufgrund der hohen Marktkonzentration kann es zu Risiken kommen (Monopolbildung und Abhängigkeit durch einen Anbieter). Eine weitere Analyse durch eine Lorenzkurve für die Darstellung der Konzentration und Marktstruktur wäre von Vorteil. \n\n")
             st.markdown("Zudem zeigen die Ergebnisse eine Sortimentbreite der Top 10 Anbieter und Spezialisierung des Top Anbieters. Somit könnte man ableiten, welche Strategien sinnvoll sind. Beispielsweise können die Anbieter mit einem diversen Produktportfolio Marktschwankungen besser verarbeiten. Der Top-Anbieter nicht und trägt damit höhere Risiken, welche man durch Simulationen überprüfen kann und durch Analysen des Markts. \n\n")
             st.markdown("Zur Kontrolle der Lieferzeiten kann man KPI's definieren um somit die Qualität und Effizenz zu gewährleisten. Dies kann zu einer höheren Kundenzufriedenheit führen")
 elif auswahl == "5. Durchschnittlicher Warenkorbwert und Produktanzahl":
@@ -721,7 +721,7 @@ elif auswahl == "6. Abgebrochene Bestellungen (Hinweise und Muster)":
         st.code(sql_query_3, language = "sql")
         st.markdown("**Bestimmte Produktkategorien sind auch keine Ursache für abgebrochene Bestellungen.**")
         with st.expander("Nächste Schritte (bei vollständiger Dateneinsicht)"):
-            st.markdown("Die einzig signifikante Faktor ist die Lieferzeit. Das bedeutet das die Prozesszeoten und Lieferzeiten einen direkten Einfluss auf den Umsatz haben. In Zusammenarbeit mit der Logistik könnte dazuführen Lieferprozesse zu beschleunigen, Kosten einzusparen und somit auch die Kundenzufriedenheit zu gewährleisten.)")
+            st.markdown("Die einzig signifikante Faktor ist die Lieferzeit. Das bedeutet, das die Prozesszeiten und Lieferzeiten einen direkten Einfluss auf den Umsatz haben. In Zusammenarbeit mit der Logistik könnte dazuführen Lieferprozesse zu beschleunigen, Kosten einzusparen und somit auch die Kundenzufriedenheit zu gewährleisten.)")
         
         
 
@@ -877,7 +877,7 @@ elif auswahl == "7. Review-Score":
         st.markdown("**Die Mehrheit der Bewertungen fällt negativ aus, wobei 2-Sterne-Bewertungen am häufigsten vorkommen. Positive Bewertungen sind in der Minderheit und verteilen sich über die Lieferzeit hinsichtlich der Anteile weniger**  \n"
                     "Möglicherweise sind diese Produkt in Masse vorhanden, was für eine schlechtere Qualität (ergo schlechtere Bewertungen) sprechen könnte.")
         with st.expander("Nächste Schritte (bei vollständiger Dateneinsicht)"):
-            st.markdown("Eine Strategie-Ableitung zur Steigerung der Qualität durch eine Spezialisierung lässt sich ableiten. Gut bewertete Anbieter weisen diese Tatsache vor. Eine Definition von Qualitätskennzahlen um Prozesse zu überwachen und eine Kundenzufriedenheit zu gewährleisten.")
+            st.markdown("Eine Strategie-Ableitung zur Steigerung der Qualität durch eine Spezialisierung lässt sich ableiten. Gut bewertete Anbieter weisen diese Tatsache vor. Weiterer Schritt: Eine Definition von Qualitätskennzahlen um Prozesse zu überwachen und eine Kundenzufriedenheit zu gewährleisten .")
         
         
 
@@ -947,6 +947,7 @@ elif auswahl == "8. Zusammenhänge der Variablen Lieferzeit, Versandkosten, Stan
         with st.expander("Nächste Schritte (bei vollständiger Dateneinsicht)"):
             st.markdown("Durch eine Einführung von Lieferantenbewertungen kann man Standortoptimierungen durchführen und somit gezielt Kosten senken.")
         
+
 
 
 
