@@ -138,6 +138,9 @@ elif auswahl == "2. Regionale vs. saisonale Verkaufsmuster":
         )
         st.subheader("Verwendete SQL-Query")
         st.code(sql_query_3, language = "sql")
+        with st.expander("Nächste Schritte (bei vollständiger Dateneinsicht)"):
+            st.markdown("Ich würde Kundenwerte modellieren, um zu sehen, welche Segmente langfristig am profitabelsten sind und wo Verbesserung zu einer Umsatzsteigerung führen können. Zudem wäre eine Deckungsbeitragsrechnung auf Kundenebene sinnvoll, um die Liquidität zu gewährleisten.")
+        
 
 elif auswahl == "3. Top Kunden":	
         sql_query = """
@@ -926,6 +929,7 @@ elif auswahl == "8. Zusammenhänge der Variablen Lieferzeit, Versandkosten, Stan
         st.markdown("**Die Lieferverzögerungen führen natürlich zu einer Unzufriedenheit der Kunden.**")
         st.markdown("Ein Vergleich der Distanz erfolgreicher und nicht erfolgreicher Bestellungen ergab:")
         st.markdown("**Die mittlere Lieferdistanz ist um 32\% höher als bei den erfolgreich gelieferten Bestellungen. Das ist ein möglicher Grund für die verspäteten Lieferungen. Und erklärt möglicherweise auch, wieso die Verspätungen zumeist von den Lieferanten ausgehen.**")
+
 
 
 
